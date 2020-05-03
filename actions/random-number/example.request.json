@@ -1,0 +1,7 @@
+{
+    "action": "random-number",
+    "input": {
+        "min": 100,
+        "max": 200
+    }
+}

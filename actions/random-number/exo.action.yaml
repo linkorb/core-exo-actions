@@ -1,0 +1,27 @@
+name: random-number
+description: Random number generator
+handler: rand.php
+interpreter: php
+
+input:
+  type: object
+  required:
+  - min
+  - max
+  additionalProperties: false
+  properties:
+    min:
+      type: integer
+      description: Minimum value
+    max:
+      type: integer
+      description: Maximum value
+
+output:
+  type: object
+  required:
+  - result
+  additionalProperties: false
+  properties:
+    result:
+      type: integer

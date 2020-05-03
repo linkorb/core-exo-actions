@@ -1,0 +1,18 @@
+name: mattermost-send-message
+description: Send a message to a user or channel
+handler: message.php
+interpreter: php
+input:
+  type: object
+  required: [ url, channel, text ]
+  additionalProperties: false
+  properties:
+    url:
+      type: string
+      description: Webhook URL
+    channel:
+      type: string
+      description: Channel uri or @username
+    text:
+      type: string
+      description: Message text to send

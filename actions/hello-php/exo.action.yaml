@@ -1,0 +1,28 @@
+name: hello-php
+description: My cool Hello world example in PHP
+handler: hello.php
+input:
+  type: object
+  required: [ greeting, name ]
+  additionalProperties: false
+  properties:
+    greeting:
+      type: string
+      description: Type of greeting
+      default: Hello
+      enum:
+      - Hello
+      - What's up
+      - Yo
+    name:
+      type: string
+      description: Name to greet (i.e. 'Joe')
+
+output:
+  type: object
+  required: [ text ]
+  additionalProperties: false
+  properties:
+    text:
+      type: string
+  

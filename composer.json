@@ -1,0 +1,12 @@
+{
+  "name": "linkorb/rand-exo-action",
+  "require": {
+    "php": ">=7.0",
+    "linkorb/connector": "^1.2",
+    "thibaud-dauce/mattermost-php": "^1.2",
+    "symfony/mailer": "^5.0",
+    "symfony/mime": "^5.0",
+    "linkorb/autotune": "^1.2"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,24 @@
+name: smtp-send
+description: Send SMTP message
+handler: smtp-send.php
+interpreter: php
+input:
+  type: object
+  required: [ dsn, from, to ]
+  additionalProperties: false
+  properties:
+    dsn:
+      type: string
+      description: DSN
+    from:
+      type: string
+      description: Default from address
+    to:
+      type: string
+      description: To (Recipient)
+    subject:
+      type: string
+      description: Subject
+    body:
+      type: string
+      description: Body

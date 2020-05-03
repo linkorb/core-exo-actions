@@ -1,0 +1,24 @@
+name: sql-query
+description: Run an SQL query
+handler: query.php
+interpreter: php
+input:
+  type: object
+  required: [sql]
+  additionalProperties: false
+  properties:
+    dsn:
+      type: string
+      description: DSN
+    sql:
+      type: string
+      description: SQL query
+    
+output:
+  type: object
+  required: [rows]
+  additionalProperties: false
+  properties:
+    rows:
+      type: array
+      description: Result rows
