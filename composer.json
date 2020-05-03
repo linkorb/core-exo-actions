@@ -9,5 +9,8 @@
     "linkorb/autotune": "^1.2",
     "linkorb/exo": "^1.1"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "echo 'noop'"
+  }
 }
