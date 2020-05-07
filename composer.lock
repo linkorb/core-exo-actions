@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "32bf2eb97e487be0ef6bbbc329c6b448",
+    "content-hash": "2428ca76758f590907bb2bcc0d5bde19",
     "packages": [
+        {
+            "name": "andrewfenn/pid-helper",
+            "version": "0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/andrewfenn/pidhelper.git",
+                "reference": "407e3b4e0210929a95adf2262c6c3cd38c2dd5e4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/andrewfenn/pidhelper/zipball/407e3b4e0210929a95adf2262c6c3cd38c2dd5e4",
+                "reference": "407e3b4e0210929a95adf2262c6c3cd38c2dd5e4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PidHelper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Andrew Fenn",
+                    "homepage": "https://github.com/andrewfenn"
+                }
+            ],
+            "description": "A small helper class used to help you check if code is still running",
+            "keywords": [
+                "pid",
+                "process"
+            ],
+            "time": "2015-09-01T07:42:02+00:00"
+        },
         {
             "name": "doctrine/lexer",
             "version": "1.2.0",
@@ -654,19 +694,20 @@
         },
         {
             "name": "linkorb/exo",
-            "version": "v1.1.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkorb/exo.git",
-                "reference": "e53e1ddb906d610a51a27a5e4c328f79377dc021"
+                "reference": "90f4585cbe6bb84dbc564fdfafc44e931ccd4706"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linkorb/exo/zipball/e53e1ddb906d610a51a27a5e4c328f79377dc021",
-                "reference": "e53e1ddb906d610a51a27a5e4c328f79377dc021",
+                "url": "https://api.github.com/repos/linkorb/exo/zipball/90f4585cbe6bb84dbc564fdfafc44e931ccd4706",
+                "reference": "90f4585cbe6bb84dbc564fdfafc44e931ccd4706",
                 "shasum": ""
             },
             "require": {
+                "andrewfenn/pid-helper": "^0.1.0",
                 "gnello/php-mattermost-driver": "^2.12",
                 "justinrainbow/json-schema": "^5.0",
                 "linkorb/boost": "^1.0",
@@ -686,6 +727,9 @@
                 "symfony/console": "^4.0",
                 "symfony/dotenv": "^3.0|^4.0"
             },
+            "bin": [
+                "bin/exo"
+            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -713,7 +757,48 @@
                 "linkorb",
                 "trigger"
             ],
-            "time": "2020-05-03T16:53:46+00:00"
+            "time": "2020-05-06T06:28:11+00:00"
+        },
+        {
+            "name": "messagebird/php-rest-api",
+            "version": "v1.17.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/messagebird/php-rest-api.git",
+                "reference": "6a063f6507961c3f3686dab63f5da5fde0c84444"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/messagebird/php-rest-api/zipball/6a063f6507961c3f3686dab63f5da5fde0c84444",
+                "reference": "6a063f6507961c3f3686dab63f5da5fde0c84444",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^7.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MessageBird\\": "src/MessageBird/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-2-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "MessageBird",
+                    "email": "info@messagebird.com"
+                }
+            ],
+            "description": "MessageBird REST API client for PHP",
+            "homepage": "https://github.com/messagebird/php-rest-api",
+            "time": "2020-05-06T09:33:27+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -1392,6 +1477,63 @@
                 "standards"
             ],
             "time": "2019-11-18T17:27:11+00:00"
+        },
+        {
+            "name": "symfony/dotenv",
+            "version": "v5.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dotenv.git",
+                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dotenv/zipball/28658ee990ea643c8111bac242d6ee5f3a15ef72",
+                "reference": "28658ee990ea643c8111bac242d6ee5f3a15ef72",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2.5"
+            },
+            "require-dev": {
+                "symfony/process": "^4.4|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Dotenv\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Registers environment variables from a .env file",
+            "homepage": "https://symfony.com",
+            "keywords": [
+                "dotenv",
+                "env",
+                "environment"
+            ],
+            "time": "2020-03-27T16:56:45+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
