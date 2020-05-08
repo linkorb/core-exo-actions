@@ -3,6 +3,12 @@
 require_once __DIR__.'/../../autoload.php';
 
 use Exo\Toolkit\Runner;
+use MessageBird\Client;
+use essageBird\Exceptions\{
+    AuthenticateException,
+    BalanceException
+};
+use MessageBird\Objects\Message;
 
 $run = Runner::run(function ($request) {
     $input = $request['input'];
@@ -12,58 +18,40 @@ $run = Runner::run(function ($request) {
     $text = $input['text'];
     $key = $input['key'];
 
-    $MessageBird = new \MessageBird\Client($key);
+    $messageBird = new Client($key);
 
-    $Message = new \MessageBird\Objects\Message();
-    $Message->originator = $originator;
-    $Message->recipients = $recipients;
-    $Message->body = $text;
-
-
-
-    $MessageList = $MessageBird->messages->getList(['offset' => 100, 'limit' => 30]);
-
-
-       $response = [
-            'status' => 'OK',
-            'output' => [
-                'message' => 'cool',
-                'test' => $MessageList
-            ],
-        ];
-
-     return $response;
+    $message = new Message();
+    $message->originator = $originator;
+    $message->recipients = $recipients;
+    $message->body = $text;
 
     try {
-        $MessageResult = $MessageBird->messages->create($Message);
+        $messageResult = $messageBird->messages->create($message);
 
         $response = [
             'status' => 'OK',
-            'output' => [
-                'message' => 'cool',
-            ],
         ];
-    } catch (\MessageBird\Exceptions\AuthenticateException $e) {
+    } catch (AuthenticateException $e) {
         // That means that your accessKey is unknown
 
         $response = [
-            'status' => 'fail',
-            'output' => [
+            'status' => 'error',
+            'error' => [
                 'message' => 'wrong login',
             ],
         ];
-    } catch (\MessageBird\Exceptions\BalanceException $e) {
+    } catch (BalanceException $e) {
         // That means that you are out of credits, so do something about it.
         $response = [
-            'status' => 'fail',
-            'output' => [
+            'status' => 'ERROR',
+            'error' => [
                 'message' => 'no balance',
             ],
         ];
-    } catch (\Exception $e) {
+    } catch (Exception $e) {
         $response = [
-            'status' => 'fail',
-            'output' => [
+            'status' => 'ERROR',
+            'error' => [
                 'message' => $e->getMessage(),
             ],
         ];

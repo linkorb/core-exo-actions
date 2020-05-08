@@ -9,23 +9,15 @@ input:
   properties:
     originator:
       type: string
-      description: originator
+      description: Originator
     recipients:
       type: string
-      description: recipients
+      description: Recipients
     text:
       type: string
       description: Message text to send
     key:
       type: string
-      description: messagebird key
+      description: Messagebird key
 
-output:
-  type: object
-  required: [ message, test ]
-  additionalProperties: false
-  properties:
-    message:
-      type: string
-    test:
-      type: array
+output: ~
