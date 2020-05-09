@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "721463ad36fc8c535bb1fb1e91bc80a5",
+    "content-hash": "e900295be403c2e3ce3fe070418acf18",
     "packages": [
         {
             "name": "andrewfenn/pid-helper",
