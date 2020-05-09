@@ -1,0 +1,23 @@
+name: messagebird-send-sms
+description: Messagebird send sms
+handler: sms.php
+interpreter: php
+input:
+  type: object
+  required: [originator, recipients, text, key]
+  additionalProperties: false
+  properties:
+    originator:
+      type: string
+      description: Originator
+    recipients:
+      type: string
+      description: Recipients
+    text:
+      type: string
+      description: Message text to send
+    key:
+      type: string
+      description: Messagebird key
+
+output: ~

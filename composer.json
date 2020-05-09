@@ -7,7 +7,9 @@
     "symfony/mailer": "^5.0",
     "symfony/mime": "^5.0",
     "linkorb/autotune": "^1.2",
-    "linkorb/exo": "^1.1"
+    "linkorb/exo": "^1.1",
+    "messagebird/php-rest-api": "^1.17",
+    "symfony/dotenv": "^5.0"
   },
   "license": "MIT",
   "scripts": {

@@ -1,0 +1,9 @@
+{
+    "action": "messagebird-send-sms",
+    "input": {
+        "originator": "kaushik",
+        "recipients": "31612345678",
+        "text": "Hello messagebird",
+        "key": "xxxxxxxx"
+    }
+}
