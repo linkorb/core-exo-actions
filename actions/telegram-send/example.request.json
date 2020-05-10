@@ -1,0 +1,8 @@
+{
+    "action": "telegram-send",
+    "input": {
+        "token": "xxxxxxx",
+        "channel": "xxx",
+        "text": "Hey jf, My test message"
+    }
+}
