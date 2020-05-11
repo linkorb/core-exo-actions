@@ -1,0 +1,20 @@
+name: telegram-send
+description: Send a message through a Telegram bot
+handler: telegram.php
+interpreter: php
+input:
+  type: object
+  required: [token, chatId, text]
+  additionalProperties: false
+  properties:
+    token:
+      type: string
+      description: Bots token
+    chatId:
+      type: string
+      description: ChatID
+    text:
+      type: string
+      description: Message text to send
+
+output: ~
