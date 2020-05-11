@@ -9,16 +9,16 @@ $run = Runner::run(function ($request) {
     $input = $request['input'];
 
     $token = $input['token'];
-    $channel = $input['channel'];
+    $chatId = $input['chatId'];
     $text = $input['text'];
 
     $telegram = new Api($token);
 
     $telegram->sendMessage(
         [
-            'chat_id' => $channel ,
+            'chat_id' => $chatId,
             'parse_mode' => 'markdown',
-            'text' => 'Hi @BotFather  send message from api',
+            'text' => $text,
             'disable_web_page_preview' => 'false',
         ]
     );

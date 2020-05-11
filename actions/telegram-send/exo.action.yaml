@@ -1,18 +1,18 @@
 name: telegram-send
-description: Bots telegram
+description: Send a message through a Telegram bot
 handler: telegram.php
 interpreter: php
 input:
   type: object
-  required: [token, channel, text]
+  required: [token, chatId, text]
   additionalProperties: false
   properties:
-    Token:
+    token:
       type: string
       description: Bots token
-    channel:
+    chatId:
       type: string
-      description: Channel/Chat id
+      description: ChatID
     text:
       type: string
       description: Message text to send
