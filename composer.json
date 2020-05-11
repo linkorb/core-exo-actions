@@ -8,7 +8,8 @@
     "symfony/mime": "^5.0",
     "linkorb/exo": "^1.4",
     "messagebird/php-rest-api": "^1.17",
-    "irazasyed/telegram-bot-sdk": "^3.1"
+    "irazasyed/telegram-bot-sdk": "^3.1",
+    "guzzlehttp/guzzle": "^6.5"
   },
   "require-dev": {
     "linkorb/autotune": "^1.2"
