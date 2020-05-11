@@ -1,6 +1,6 @@
 name: telegram-send
 description: Send a message through a Telegram bot
-handler: telegram.php
+handler: telegram-send.php
 interpreter: php
 input:
   type: object
