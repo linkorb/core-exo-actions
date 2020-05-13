@@ -1,0 +1,23 @@
+{
+    "action": "twig-render",
+    "input": {
+        "template": "Hello, {{ name }}! I'm {{ person.displayName }}. Super busy, got to {% for todo in todos %}{{todo.title}}, {% endfor %}etc",
+        "variables": {
+            "name": "world",
+            "person": {
+                "displayName": "Alice"
+            },
+            "todos": [
+                {
+                    "title": "Do laundry"
+                },
+                {
+                    "title": "Make pancakes"
+                },
+                {
+                    "title": "Sort mail"
+                }
+            ]
+        }
+    }
+}

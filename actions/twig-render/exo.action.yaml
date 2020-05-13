@@ -1,0 +1,24 @@
+name: twig-render
+description: Render a Twig template
+handler: twig-render.php
+interpreter: php
+input:
+  type: object
+  required: [template, variables]
+  additionalProperties: false
+  properties:
+    template:
+      type: string
+      description: Template string
+    variables:
+      type: object
+      description: Variables
+    
+output:
+  type: object
+  required: [result]
+  additionalProperties: false
+  properties:
+    result:
+      type: string
+      description: String result
