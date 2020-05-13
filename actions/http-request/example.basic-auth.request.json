@@ -1,0 +1,10 @@
+{
+    "action": "http-request",
+    "input": {
+        "url": "https://postman-echo.com/basic-auth",
+        "method": "GET",
+        "postProcess": "json",
+        "username": "postman",
+        "password": "password"
+    }
+}

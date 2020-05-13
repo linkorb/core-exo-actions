@@ -1,0 +1,8 @@
+{
+    "action": "http-request",
+    "input": {
+        "url": "https://jsonplaceholder.typicode.com/todos/1",
+        "method": "GET",
+        "postProcess": "json"
+    }
+}
