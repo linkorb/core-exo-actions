@@ -12,10 +12,10 @@ input:
       description: DSN
     from:
       type: string
-      description: Default from address
+      description: From address
     to:
       type: string
-      description: To (Recipient)
+      description: To address. May contain multiple as csv
     subject:
       type: string
       description: Subject

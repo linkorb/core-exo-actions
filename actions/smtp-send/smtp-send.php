@@ -12,12 +12,14 @@ $run = Runner::run(function($request) {
     $subject = $request['input']['subject'] ?? '(No subject)';
     $body = $request['input']['body'] ?? 'No body content';
 
+    $to = explode(",", $to);
+
     $dsn = $request['input']['dsn'];
     $from = $request['input']['from'];
 
     $email = (new Email())
         ->from($from)
-        ->to($to)
+        ->to(...$to)
         ->subject($subject)
         ->text($body)
     ;
