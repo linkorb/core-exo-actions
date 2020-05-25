@@ -1,0 +1,65 @@
+name: http-request
+description: Execute an HTTP request
+handler: http-request.php
+interpreter: php
+input:
+  type: object
+  required: [url]
+  additionalProperties: false
+  properties:
+    url:
+      type: string
+      description: URL
+    method:
+      type: string
+      description: HTTP Method
+      default: GET
+      enum:
+      - GET
+      - POST
+      - PUT
+      - PATCH
+      - DELETE
+      - HEAD
+      - CONNECT
+      - OPTIONS
+      - TRACE
+    body:
+      type: ['string', 'object']
+      description: Request body
+    headers:
+      type: 'object'
+      description: HTTP Headers
+    preProcess:
+      type: ['string', 'null']
+      description: Pre-process request body
+      default: null
+      enum:
+      - null
+      - json
+    postProcess:
+      type: ['string', 'null']
+      description: Post-process response body
+      default: null
+      enum:
+      - null
+      - json
+    username:
+      type: string
+      description: Basic auth username
+    password:
+      type: string
+      description: Basic auth password
+  
+output:
+  type: object
+  required: [statusCode]
+  additionalProperties: false
+  properties:
+    statusCode:
+      type: integer
+      description: HTTP Response status code
+    body:
+      type: ['string', 'object', 'null']
+      description: HTTP Response body
+  

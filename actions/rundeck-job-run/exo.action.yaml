@@ -20,4 +20,4 @@ output:
   properties:
     executionId:
       type: integer
-  
+

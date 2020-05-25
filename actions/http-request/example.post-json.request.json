@@ -1,0 +1,17 @@
+{
+    "action": "http-request",
+    "input": {
+        "url": "https://jsonplaceholder.typicode.com/todos",
+        "method": "POST",
+        "body": {
+            "title": "foo",
+            "body": "bar",
+            "userId": 1
+        },
+        "headers": {
+            "Content-type": "application/json; charset=UTF-8"
+        },
+        "preProcess": "json",
+        "postProcess": "json"
+    }
+}
