@@ -1,0 +1,16 @@
+name: git-commit
+description: Git commit command
+handler: git_commit.php
+interpreter: php
+input:
+  type: object
+  required: [directory, message]
+  additionalProperties: false
+  properties:
+    directory:
+      type: string
+      description: Directory path
+    message:
+      type: string
+      description: Commit message
+output: ~
