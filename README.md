@@ -26,7 +26,7 @@ This project provides a set of common reusable actions for [Exo](https://github.
 
 ## Creating new Exo actions
 
-Create a new directory for your action in `actions/` (i.e. `actions/my-action/`) and add a file called `exo.action.yaml`. 
+Create a new directory for your action in `actions/` (i.e. `actions/my-action/`) and add a file called `exo.action.yaml`.
 
 As a starting point, you can copy one of the `exo.action.yaml` files from an existing action, and modify it to your requirements.
 
