@@ -1,0 +1,9 @@
+{
+    "action": "mysql-dump",
+    "input": {
+        "dsn": "mysql://username:password@localhost/mydb",
+        "filename": "/tmp/mydb.sql.gz.bz2",
+        "gzip": false,
+        "bzip": true
+    }
+}
