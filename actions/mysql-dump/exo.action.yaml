@@ -1,0 +1,23 @@
+name: mysql-dump
+description: Mysql dump into file gzip/bzip
+handler: mysql_dump.php
+interpreter: php
+input:
+  type: object
+  required: [dsn, filename, gzip, bzip]
+  additionalProperties: false
+  properties:
+    dsn:
+      type: string
+      description: Mysql DSN
+    filename:
+      type: string
+      description: Path to the file
+    gzip:
+      type: bool
+      description: Set true if output through gzip
+    bzip:
+      type: string
+      description: Set true if output through bzip
+
+output: ~
