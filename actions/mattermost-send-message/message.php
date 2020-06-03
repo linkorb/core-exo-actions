@@ -1,31 +1,33 @@
 <?php
 
-require_once __DIR__ . '/../../autoload.php';
+require_once __DIR__.'/../../autoload.php';
 
-use Exo\Utils;
+use Exo\Toolkit\Runner;
 use GuzzleHttp\Client;
 use ThibaudDauce\Mattermost\Mattermost;
 use ThibaudDauce\Mattermost\Message;
-use ThibaudDauce\Mattermost\Attachment;
-use Exo\Toolkit\Runner;
 
-$run = Runner::run(function($request) {
+$run = Runner::run(function ($request) {
     $input = $request['input'];
     $url = $input['url'];
-    $channel = $input['channel'];
+    $channels = $input['channels'];
     $text = $input['text'];
 
-    $mattermost = new Mattermost(new Client);
+    $channelArray = array_map('trim', explode(',', $channels));
 
-    $message = (new Message)
-        ->text($text)
-        ->channel($channel)
-    ;
+    foreach ($channelArray as $key => $channel) {
+        $mattermost = new Mattermost(new Client());
 
-    $mattermost->send($message, $url);
-        
+        $message = (new Message())
+            ->text($text)
+            ->channel($channel);
+
+        $mattermost->send($message, $url);
+    }
+
     $response = [
-        'status' => 'OK'
+        'status' => 'OK',
     ];
+
     return $response;
 });

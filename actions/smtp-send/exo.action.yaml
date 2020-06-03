@@ -22,3 +22,9 @@ input:
     body:
       type: string
       description: Body
+    cc:
+      type: string
+      description: CC address. May contain multiple as csv
+    bcc:
+      type: string
+      description: BCC address. May contain multiple as csv
