@@ -1,0 +1,21 @@
+name: herald-send
+description: Send a message
+handler: message.php
+interpreter: php
+input:
+  type: object
+  required: [ dsn, to, template ]
+  additionalProperties: false
+  properties:
+    dsn:
+      type: string
+      description: herald DSN
+    to:
+      type: string
+      description: To address. May contain multiple as csv
+    template:
+      type: string
+      description: Message template name
+    data:
+      type: string
+      description: Json string of data to send

@@ -1,0 +1,9 @@
+{
+    "action": "herald:send",
+    "input": {
+        "dsn": "https://username:password@herald.dev/myAccount/myLibrary/myTransport",
+        "to": "bob@gmail.com, alice@alice.com",
+        "template": "welcome",
+        "data": {"param": "value", "data-2": "value2"}
+    }
+}
