@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4cc074d0814ae1bc8fbffbf8460a3009",
+    "content-hash": "29f5950fd293f4a06312e5a5e91b66fb",
     "packages": [
         {
             "name": "andrewfenn/pid-helper",
@@ -480,6 +480,61 @@
                 "url"
             ],
             "time": "2019-07-01T23:21:34+00:00"
+        },
+        {
+            "name": "herald-project/client-php",
+            "version": "v2.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/linkorb/herald-client-php.git",
+                "reference": "69625551d4c59b8bcbffce3f03d639578af816d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/linkorb/herald-client-php/zipball/69625551d4c59b8bcbffce3f03d639578af816d8",
+                "reference": "69625551d4c59b8bcbffce3f03d639578af816d8",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^4.0|^5.0|^6.0"
+            },
+            "require-dev": {
+                "symfony/console": "^2.4|^3.0",
+                "symfony/dotenv": "^3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Herald\\Client\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Hongliang Wang",
+                    "email": "h.wang@onatal.nl",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Joost Faassen",
+                    "email": "j.faassen@onatal.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Herald client for PHP",
+            "keywords": [
+                "email",
+                "herald",
+                "mailgun",
+                "mandrill",
+                "messages",
+                "smtp",
+                "templates"
+            ],
+            "time": "2018-04-26T12:58:47+00:00"
         },
         {
             "name": "illuminate/contracts",
