@@ -9,9 +9,9 @@ $run = Runner::run(function($request) {
     $input = $request['input'];
     $jobId = $input['job'];
     $dsn = $input['dsn'];
-   
+
     $part = parse_url($dsn);
-    
+
     $baseUrl = $part['scheme'] . '://' . $part['host'];
     $auth = $part['user'];
     if ($auth!='token') {
@@ -23,7 +23,7 @@ $run = Runner::run(function($request) {
                     'message' => 'Only supports auth type `token` in username',
                 ]
             ],
-        ]; 
+        ];
     }
     $token = $part['pass'] ?? null;
 
@@ -36,7 +36,7 @@ $run = Runner::run(function($request) {
                     'message' => 'Please provide a token in the DSN',
                 ]
             ],
-        ]; 
+        ];
     }
 
 
@@ -73,9 +73,9 @@ $run = Runner::run(function($request) {
                     'message' => ($data['message'] ?? null),
                 ]
             ],
-        ]; 
+        ];
     }
-    
+
     $executionId = $data['id'] ?? null;
 
     return [
