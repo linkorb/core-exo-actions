@@ -10,9 +10,9 @@ input:
     url:
       type: string
       description: Webhook URL
-    channels:
+    channel:
       type: string
-      description: Channels uri or @username. May contain multiple as csv
+      description: Channel URI or @username. May contain multiple as csv
     text:
       type: string
       description: Message text to send

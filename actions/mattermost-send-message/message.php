@@ -10,12 +10,12 @@ use ThibaudDauce\Mattermost\Message;
 $run = Runner::run(function ($request) {
     $input = $request['input'];
     $url = $input['url'];
-    $channels = $input['channels'];
+    $channel = $input['channel'];
     $text = $input['text'];
 
-    $channelArray = array_map('trim', explode(',', $channels));
+    $channels = array_map('trim', explode(',', $channel));
 
-    foreach ($channelArray as $key => $channel) {
+    foreach ($channels as $key => $channel) {
         $mattermost = new Mattermost(new Client());
 
         $message = (new Message())
