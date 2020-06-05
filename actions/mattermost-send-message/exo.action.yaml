@@ -4,7 +4,7 @@ handler: message.php
 interpreter: php
 input:
   type: object
-  required: [ url, channels, text ]
+  required: [ url, channel, text ]
   additionalProperties: false
   properties:
     url:
