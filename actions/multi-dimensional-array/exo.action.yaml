@@ -1,0 +1,28 @@
+name: multi-dimensional-array
+description: Multi dimensional array input example
+handler: multi-dimensional-array.php
+interpreter: php
+input:
+  type: object
+  required: [color]
+  additionalProperties: false
+  properties:
+    color:
+      type: string
+      description: Color
+      default: green
+      enum:
+      - red
+      - green
+      - blue
+    attributes:
+      type: object
+      description: Any custom attributes
+
+output:
+  type: object
+  required: [ text ]
+  additionalProperties: false
+  properties:
+    text:
+      type: string

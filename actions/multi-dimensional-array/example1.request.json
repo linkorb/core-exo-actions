@@ -1,0 +1,11 @@
+{
+  "action": "multi-dimensional-array",
+  "input": {
+    "color": "blue",
+    "attributes": {
+      "size": "XL",
+      "material": "cotton",
+      "hoodie": true
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "action": "multi-dimensional-array",
+  "input": {
+    "color": "green",
+    "attributes.material": "linen",
+    "attributes.size": "XS",
+    "attributes.print": true
+  }
+}
