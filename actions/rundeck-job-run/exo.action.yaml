@@ -7,17 +7,33 @@ input:
   additionalProperties: false
   properties:
     dsn:
+      title: Rundeck DSN
       type: string
-      description: Rundeck DSN
+      description: Full URL including authentication token
+      examples:
+        - https://token:thisisasecret@rundeck.example.com
 
     job:
+      title: Job UUID
       type: string
-      description: Job UUID
+      examples:
+        - bff20b55-e2a4-4de6-b3f5-c1a29c422e5d
+
+    options:
+      title: Array of job options
+      type: object
+      examples:
+        -
+          - color: red
+          - size: XL
 
 output:
   type: object
   additionalProperties: false
   properties:
     executionId:
+      title: Execution ID
       type: integer
+      examples:
+        12345
 

@@ -9,6 +9,7 @@ $run = Runner::run(function($request) {
     $input = $request['input'];
     $jobId = $input['job'];
     $dsn = $input['dsn'];
+    $options = $input['options'] ?? [];
 
     $part = parse_url($dsn);
 
@@ -52,12 +53,11 @@ $run = Runner::run(function($request) {
             ]
         ]
     );
+    // print_r($client);exit();
     $response = $client->post('/api/18/job/' . $jobId . '/run',
         [
             'json' => [
-                'options' => [
-                    'dbname' => 'n_0000',
-                ],
+                'options' => $options,
             ],
         ]
     );
