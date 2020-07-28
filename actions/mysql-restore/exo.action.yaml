@@ -4,7 +4,7 @@ handler: mysql_restore.php
 interpreter: php
 input:
   type: object
-  required: [dsn, filename, gzip, bzip]
+  required: [dsn, filename]
   additionalProperties: false
   properties:
     dsn:
@@ -14,7 +14,10 @@ input:
         - mysql://username:password@hostname/dbname
     filename:
       type: string
-      title: Path to the file
+      title: Path to the .sql file
+      examples:
+        - /tmp/dbname.sql.gz
+        - /tmp/dbname.sql.bz2
     gzip:
       type: bool
       title: Pipe input through gzip
