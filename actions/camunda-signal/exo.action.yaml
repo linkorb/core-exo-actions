@@ -1,0 +1,40 @@
+name: camunda-signal
+description: Send a signal to Camunda
+handler: camunda-signal.php
+interpreter: php
+input:
+  type: object
+  required: [url, name]
+  additionalProperties: false
+  properties:
+    url:
+      type: string
+      title: Camunda base URL
+      examples:
+        - https://camunda.example.com
+    name:
+      type: string
+      title: Signal name
+      example:
+        - user-signed-up
+        - invoice-paid
+        - order-confirmed
+        - comment-posted
+    variables:
+      type: ['object']
+      title: Signal variables
+      description: |
+        The Camunda signal handler may support an array of input variables that can be provided here.
+        The available variables depend on the process design.
+
+output: ~
+  # type: object
+  # required: [statusCode]
+  # additionalProperties: false
+  # properties:
+  #   statusCode:
+  #     type: integer
+  #     description: HTTP Response status code
+  #   body:
+  #     type: ['string', 'object', 'null']
+  #     description: HTTP Response body
