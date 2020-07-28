@@ -9,11 +9,11 @@ input:
   properties:
     template:
       type: string
-      description: Template string
+      title: Template string
     variables:
       type: object
-      description: Variables
-    
+      title: Variables
+
 output:
   type: object
   required: [result]

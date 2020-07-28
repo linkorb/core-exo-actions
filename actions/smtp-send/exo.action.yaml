@@ -9,22 +9,22 @@ input:
   properties:
     dsn:
       type: string
-      description: DSN
+      title: DSN
     from:
       type: string
-      description: From address
+      title: From address
     to:
       type: string
-      description: To address. May contain multiple as csv
+      title: To address. May contain multiple as csv
     subject:
       type: string
-      description: Subject
+      title: Subject
     body:
       type: string
-      description: Body
+      title: Body
     cc:
       type: string
-      description: CC address. May contain multiple as csv
+      title: CC address. May contain multiple as csv
     bcc:
       type: string
-      description: BCC address. May contain multiple as csv
+      title: BCC address. May contain multiple as csv

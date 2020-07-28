@@ -9,15 +9,19 @@ input:
   properties:
     dsn:
       type: string
-      description: Mysql DSN
+      title: MySQL DSN
+      examples:
+        - mysql://username:password@hostname/dbname
     filename:
       type: string
-      description: Path to the file
+      title: Path to the file
     gzip:
       type: bool
-      description: Set true if input through gzip
+      title: Pipe input through gzip
+      default: false
     bzip:
       type: string
-      description: Set true if input through bzip
+      title: Pipe input through bzip
+      default: false
 
 output: ~

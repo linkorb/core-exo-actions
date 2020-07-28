@@ -8,7 +8,7 @@ input:
   properties:
     greeting:
       type: string
-      description: Type of greeting
+      title: Type of greeting
       default: Hello
       enum:
       - Hello
@@ -16,7 +16,11 @@ input:
       - Yo
     name:
       type: string
-      description: Name to greet (i.e. 'Joe')
+      title: Name to greet
+      examples:
+        - Alice
+        - Bob
+        - Claire
 
 output:
   type: object
@@ -25,4 +29,3 @@ output:
   properties:
     text:
       type: string
-  

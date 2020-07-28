@@ -9,8 +9,8 @@ input:
   properties:
     directory:
       type: string
-      description: Directory path
+      title: Path to git repository
     message:
       type: string
-      description: Commit message
+      title: Commit message
 output: ~

@@ -15,7 +15,7 @@ input:
     name:
       type: string
       title: Signal name
-      example:
+      examples:
         - user-signed-up
         - invoice-paid
         - order-confirmed

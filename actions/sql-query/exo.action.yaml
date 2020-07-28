@@ -9,11 +9,15 @@ input:
   properties:
     dsn:
       type: string
-      description: DSN
+      title: DSN
+      examples:
+        - mysql://username:password@hostname/dbname
     sql:
       type: string
-      description: SQL query
-    
+      title: SQL query
+      examples:
+        - "SELECT id, name, email FROM user WHERE status='ACTIVE' ORDER BY name"
+
 output:
   type: object
   required: [rows]

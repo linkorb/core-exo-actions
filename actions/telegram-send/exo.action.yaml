@@ -9,12 +9,12 @@ input:
   properties:
     token:
       type: string
-      description: Bots token
+      title: Bots token
     chatId:
       type: string
-      description: ChatID
+      title: ChatID
     text:
       type: string
-      description: Message text to send
+      title: Message text to send
 
 output: ~

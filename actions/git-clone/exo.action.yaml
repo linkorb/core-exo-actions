@@ -9,8 +9,8 @@ input:
   properties:
     url:
       type: string
-      description: Git Repository URL
+      description: Git repository URL
     directory:
       type: string
-      description: Directory path
+      description: Path to git repository
 output: ~

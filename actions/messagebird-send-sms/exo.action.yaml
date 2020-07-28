@@ -9,15 +9,15 @@ input:
   properties:
     originator:
       type: string
-      description: Originator
+      title: Originator
     recipients:
       type: string
-      description: Recipients
+      title: Recipients
     text:
       type: string
-      description: Message text to send
+      title: Message text to send
     key:
       type: string
-      description: Messagebird key
+      title: Messagebird key
 
 output: ~
