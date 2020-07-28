@@ -11,26 +11,30 @@ $run = Runner::run(function ($request) {
     $input = $request['input'];
     $filename = $input['filename'];
     $dsn = $input['dsn'];
-    $gzip = $input['gzip'];
-    $bzip = $input['bzip'];
+    $gzip = $input['gzip'] ?? false;
+    $bzip = $input['bzip'] ?? false;
 
     $connector = new Connector();
 
     $config = $connector->getConfig($dsn);
     if (!$connector->exists($config)) {
-        echo "Creating database\n";
-        $connector->create($config);
+        return $response = [
+            'status' => 'error',
+            'error' => [
+                'message' => 'Fail to connect database',
+            ],
+        ];
     }
 
     $zipType = null;
     if ($gzip) {
-        $zipType = 'zcat';
+        $zipType = 'gzip';
     }
     if ($bzip) {
-        $zipType = 'bunzip2 < ';
+        $zipType = 'bzip2';
     }
 
-    $process = Process::fromShellCommandline($zipType.' '.$filename.' | mysql -u '.$config->getUsername().' --password='.$config->getPassword().'  '.$config->getName());
+    $process = Process::fromShellCommandline('mysqldump -u '.$config->getUsername().' --password='.$config->getPassword().' --databases '.$config->getName().'  | '.$zipType.' >  '.$filename);
     try {
         $process->mustRun();
         echo $process->getOutput();

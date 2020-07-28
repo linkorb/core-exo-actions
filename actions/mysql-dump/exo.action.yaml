@@ -1,6 +1,6 @@
 name: mysql-dump
 description: Mysql dump into file gzip/bzip
-handler: mysql_dump.php
+handler: mysql-dump.php
 interpreter: php
 input:
   type: object

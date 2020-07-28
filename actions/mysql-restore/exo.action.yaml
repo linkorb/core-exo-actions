@@ -1,6 +1,6 @@
 name: mysql-restore
 description: Mysql restore database from file gzip/bzip
-handler: mysql_restore.php
+handler: mysql-restore.php
 interpreter: php
 input:
   type: object

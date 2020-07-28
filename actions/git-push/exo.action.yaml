@@ -1,6 +1,6 @@
 name: git-push
 description: Git push command
-handler: git_push.php
+handler: git-push.php
 interpreter: php
 input:
   type: object

@@ -1,6 +1,6 @@
 name: git-commit
 description: Git commit command
-handler: git_commit.php
+handler: git-commit.php
 interpreter: php
 input:
   type: object
