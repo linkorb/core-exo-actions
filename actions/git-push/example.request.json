@@ -1,0 +1,6 @@
+{
+    "action": "git-clone",
+    "input": {
+        "directory": "/tmp/git/envoi"
+    }
+}

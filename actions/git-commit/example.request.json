@@ -1,0 +1,7 @@
+{
+    "action": "git-clone",
+    "input": {
+        "directory": "/tmp/directory",
+        "message": "chore: some test commit"
+    }
+}

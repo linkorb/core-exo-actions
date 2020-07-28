@@ -1,0 +1,16 @@
+name: git-clone
+description: Git clone command
+handler: git_clone.php
+interpreter: php
+input:
+  type: object
+  required: [url, directory]
+  additionalProperties: false
+  properties:
+    url:
+      type: string
+      description: Git Repository URL
+    directory:
+      type: string
+      description: Directory path
+output: ~

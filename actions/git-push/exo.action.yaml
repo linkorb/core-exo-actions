@@ -1,0 +1,13 @@
+name: git-push
+description: Git push command
+handler: git_push.php
+interpreter: php
+input:
+  type: object
+  required: [directory]
+  additionalProperties: false
+  properties:
+    directory:
+      type: string
+      description: Directory path
+output: ~

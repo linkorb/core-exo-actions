@@ -1,0 +1,7 @@
+{
+    "action": "git-clone",
+    "input": {
+        "url": "git@github.com:xyz/xyz.git",
+        "directory": "/tmp/directory"
+    }
+}
