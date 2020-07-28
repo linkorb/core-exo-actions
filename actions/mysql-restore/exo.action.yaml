@@ -1,0 +1,23 @@
+name: mysql-restore
+description: Mysql restore database from file gzip/bzip
+handler: mysql_restore.php
+interpreter: php
+input:
+  type: object
+  required: [dsn, filename, gzip, bzip]
+  additionalProperties: false
+  properties:
+    dsn:
+      type: string
+      description: Mysql DSN
+    filename:
+      type: string
+      description: Path to the file
+    gzip:
+      type: bool
+      description: Set true if input through gzip
+    bzip:
+      type: string
+      description: Set true if input through bzip
+
+output: ~
