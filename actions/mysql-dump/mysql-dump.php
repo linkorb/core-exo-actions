@@ -34,9 +34,16 @@ $run = Runner::run(function ($request) {
         $zipType = 'bzip2';
     }
 
-    $process = Process::fromShellCommandline('mysqldump -u '.$config->getUsername().' --password='.$config->getPassword().' --databases '.$config->getName().'  | '.$zipType.' >  '.$filename);
+    $process = Process::fromShellCommandline('mysqldump -u "${:username}"  --password="${:password}" --databases "${:dbName}"  | "${:zipType}" >  "${:filename}" ');
     try {
-        $process->mustRun();
+        $process->mustRun(null, [
+            'username' => $config->getUsername(),
+            'password' => $config->getPassword(),
+            'dbName' => $config->getName(),
+            'zipType' => $zipType,
+            'filename' => $filename,
+        ]);
+
         echo $process->getOutput();
         $response = [
             'status' => 'OK',

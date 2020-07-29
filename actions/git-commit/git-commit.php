@@ -11,9 +11,9 @@ $run = Runner::run(function ($request) {
     $directory = $input['directory'];
     $message = $input['message'];
 
-    $process = new Process('git add . && git commit -m  "'.$message.'" ');
+    $process = Process::fromShellCommandline('git add . && git commit -m "${:message}" ');
     $process->setWorkingDirectory($directory);
-    $process->run();
+    $process->run(null, ['message' => $message]);
 
     if (!$process->isSuccessful()) {
         throw new ProcessFailedException($process);

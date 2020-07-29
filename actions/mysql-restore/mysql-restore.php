@@ -30,9 +30,17 @@ $run = Runner::run(function ($request) {
         $zipType = 'bunzip2 < ';
     }
 
-    $process = Process::fromShellCommandline($zipType.' '.$filename.' | mysql -u '.$config->getUsername().' --password='.$config->getPassword().'  '.$config->getName());
+    $process = Process::fromShellCommandline('"${:zipType}" "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
+
     try {
-        $process->mustRun();
+        $process->mustRun(null, [
+            'username' => $config->getUsername(),
+            'password' => $config->getPassword(),
+            'dbName' => $config->getName(),
+            'zipType' => $zipType,
+            'filename' => $filename,
+        ]);
+
         echo $process->getOutput();
         $response = [
             'status' => 'OK',
