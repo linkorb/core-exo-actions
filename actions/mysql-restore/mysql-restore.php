@@ -27,10 +27,10 @@ $run = Runner::run(function ($request) {
         $zipType = 'zcat';
     }
     if ($bzip) {
-        $zipType = 'bunzip2 < ';
+        $zipType = 'bunzip2';
     }
 
-    $process = Process::fromShellCommandline('"${:zipType}" "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
+    $process = Process::fromShellCommandline('"${:zipType}" < "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
 
     try {
         $process->mustRun(null, [
