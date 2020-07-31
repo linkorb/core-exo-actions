@@ -22,34 +22,43 @@ $run = Runner::run(function ($request) {
         $connector->create($config);
     }
 
-    $zipType = null;
-    if ($gzip) {
-        $zipType = 'zcat';
-    }
-    if ($bzip) {
-        $zipType = 'bunzip2';
-    }
+    if ($gzip xor $bzip) {
+        $zipType = null;
+        if ($gzip) {
+            $zipType = 'zcat';
+        }
+        if ($bzip) {
+            $zipType = 'bunzip2';
+        }
 
-    $process = Process::fromShellCommandline('"${:zipType}" < "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
+        $process = Process::fromShellCommandline('"${:zipType}" < "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
 
-    try {
-        $process->mustRun(null, [
-            'username' => $config->getUsername(),
-            'password' => $config->getPassword(),
-            'dbName' => $config->getName(),
-            'zipType' => $zipType,
-            'filename' => $filename,
-        ]);
+        try {
+            $process->mustRun(null, [
+                'username' => $config->getUsername(),
+                'password' => $config->getPassword(),
+                'dbName' => $config->getName(),
+                'zipType' => $zipType,
+                'filename' => $filename,
+            ]);
 
-        echo $process->getOutput();
-        $response = [
-            'status' => 'OK',
-        ];
-    } catch (ProcessFailedException $exception) {
+            echo $process->getOutput();
+            $response = [
+                'status' => 'OK',
+            ];
+        } catch (ProcessFailedException $exception) {
+            $response = [
+                'status' => 'error',
+                'error' => [
+                    'message' => $exception->getMessage(),
+                ],
+            ];
+        }
+    } else {
         $response = [
             'status' => 'error',
             'error' => [
-                'message' => $exception->getMessage(),
+                'message' => 'Provide any one format',
             ],
         ];
     }

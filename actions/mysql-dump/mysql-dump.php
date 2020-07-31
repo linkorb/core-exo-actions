@@ -26,33 +26,42 @@ $run = Runner::run(function ($request) {
         ];
     }
 
-    $zipType = null;
-    if ($gzip) {
-        $zipType = 'gzip';
-    }
-    if ($bzip) {
-        $zipType = 'bzip2';
-    }
+    if ($gzip xor $bzip) {
+        $zipType = null;
+        if ($gzip) {
+            $zipType = 'gzip';
+        }
+        if ($bzip) {
+            $zipType = 'bzip2';
+        }
 
-    $process = Process::fromShellCommandline('mysqldump -u "${:username}"  --password="${:password}" --databases "${:dbName}"  | "${:zipType}" --stdout >  "${:filename}" ');
-    try {
-        $process->mustRun(null, [
-            'username' => $config->getUsername(),
-            'password' => $config->getPassword(),
-            'dbName' => $config->getName(),
-            'zipType' => $zipType,
-            'filename' => $filename,
-        ]);
+        $process = Process::fromShellCommandline('mysqldump -u "${:username}"  --password="${:password}" --databases "${:dbName}"  | "${:zipType}" --stdout >  "${:filename}" ');
+        try {
+            $process->mustRun(null, [
+                'username' => $config->getUsername(),
+                'password' => $config->getPassword(),
+                'dbName' => $config->getName(),
+                'zipType' => $zipType,
+                'filename' => $filename,
+            ]);
 
-        echo $process->getOutput();
-        $response = [
-            'status' => 'OK',
-        ];
-    } catch (ProcessFailedException $exception) {
+            echo $process->getOutput();
+            $response = [
+                'status' => 'OK',
+            ];
+        } catch (ProcessFailedException $exception) {
+            $response = [
+                'status' => 'error',
+                'error' => [
+                    'message' => $exception->getMessage(),
+                ],
+            ];
+        }
+    } else {
         $response = [
             'status' => 'error',
             'error' => [
-                'message' => $exception->getMessage(),
+                'message' => 'Provide any one format',
             ],
         ];
     }
