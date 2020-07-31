@@ -22,26 +22,43 @@ $run = Runner::run(function ($request) {
         $connector->create($config);
     }
 
-    $zipType = null;
-    if ($gzip) {
-        $zipType = 'zcat';
-    }
-    if ($bzip) {
-        $zipType = 'bunzip2 < ';
-    }
+    if ($gzip xor $bzip) {
+        $zipType = null;
+        if ($gzip) {
+            $zipType = 'zcat';
+        }
+        if ($bzip) {
+            $zipType = 'bunzip2';
+        }
 
-    $process = Process::fromShellCommandline($zipType.' '.$filename.' | mysql -u '.$config->getUsername().' --password='.$config->getPassword().'  '.$config->getName());
-    try {
-        $process->mustRun();
-        echo $process->getOutput();
-        $response = [
-            'status' => 'OK',
-        ];
-    } catch (ProcessFailedException $exception) {
+        $process = Process::fromShellCommandline('"${:zipType}" < "${:filename}" | mysql -u "${:username}"  --password="${:password}" "${:dbName}" ');
+
+        try {
+            $process->mustRun(null, [
+                'username' => $config->getUsername(),
+                'password' => $config->getPassword(),
+                'dbName' => $config->getName(),
+                'zipType' => $zipType,
+                'filename' => $filename,
+            ]);
+
+            echo $process->getOutput();
+            $response = [
+                'status' => 'OK',
+            ];
+        } catch (ProcessFailedException $exception) {
+            $response = [
+                'status' => 'error',
+                'error' => [
+                    'message' => $exception->getMessage(),
+                ],
+            ];
+        }
+    } else {
         $response = [
             'status' => 'error',
             'error' => [
-                'message' => $exception->getMessage(),
+                'message' => 'Provide any one format',
             ],
         ];
     }

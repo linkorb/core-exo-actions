@@ -12,12 +12,13 @@ $run = Runner::run(function ($request) {
     $directory = $input['directory'];
 
     if (!is_dir($directory)) {
-        $process = new Process('git clone '.$url.' '.$directory);
+        $process = Process::fromShellCommandline('git clone "${:URL}" "${:directory}" ');
+        $process->run(null, ['URL' => $url, 'directory' => $directory]);
     } else {
         $process = new Process('git pull ');
         $process->setWorkingDirectory($directory);
+        $process->run();
     }
-    $process->run();
 
     if (!$process->isSuccessful()) {
         throw new ProcessFailedException($process);
