@@ -34,25 +34,34 @@ $run = Runner::run(function ($request) {
         $zipType = 'bzip2';
     }
 
-    $process = Process::fromShellCommandline('mysqldump -u "${:username}"  --password="${:password}" --databases "${:dbName}"  | "${:zipType}" --stdout >  "${:filename}" ');
-    try {
-        $process->mustRun(null, [
-            'username' => $config->getUsername(),
-            'password' => $config->getPassword(),
-            'dbName' => $config->getName(),
-            'zipType' => $zipType,
-            'filename' => $filename,
-        ]);
+    if ($zipType) {
+        $process = Process::fromShellCommandline('mysqldump -u "${:username}"  --password="${:password}" --databases "${:dbName}"  | "${:zipType}" --stdout >  "${:filename}" ');
+        try {
+            $process->mustRun(null, [
+                'username' => $config->getUsername(),
+                'password' => $config->getPassword(),
+                'dbName' => $config->getName(),
+                'zipType' => $zipType,
+                'filename' => $filename,
+            ]);
 
-        echo $process->getOutput();
-        $response = [
-            'status' => 'OK',
-        ];
-    } catch (ProcessFailedException $exception) {
+            echo $process->getOutput();
+            $response = [
+                'status' => 'OK',
+            ];
+        } catch (ProcessFailedException $exception) {
+            $response = [
+                'status' => 'error',
+                'error' => [
+                    'message' => $exception->getMessage(),
+                ],
+            ];
+        }
+    } else {
         $response = [
             'status' => 'error',
             'error' => [
-                'message' => $exception->getMessage(),
+                'message' => 'Not provide any format',
             ],
         ];
     }
