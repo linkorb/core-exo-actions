@@ -909,16 +909,16 @@
         },
         {
             "name": "linkorb/connector",
-            "version": "v1.2.2",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/linkorb/connector.git",
-                "reference": "a6872994a45c6f2bf5c70ce3b00f5f4efe7f78f9"
+                "reference": "2fb59295cc13318bb5dc208237a5910c95e06164"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/linkorb/connector/zipball/a6872994a45c6f2bf5c70ce3b00f5f4efe7f78f9",
-                "reference": "a6872994a45c6f2bf5c70ce3b00f5f4efe7f78f9",
+                "url": "https://api.github.com/repos/linkorb/connector/zipball/2fb59295cc13318bb5dc208237a5910c95e06164",
+                "reference": "2fb59295cc13318bb5dc208237a5910c95e06164",
                 "shasum": ""
             },
             "require": {
@@ -949,7 +949,7 @@
                 "pdo",
                 "php"
             ],
-            "time": "2019-01-08T18:46:45+00:00"
+            "time": "2020-10-30T15:06:43+00:00"
         },
         {
             "name": "linkorb/exo",
@@ -3233,5 +3233,6 @@
     "platform": {
         "php": ">=7.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
